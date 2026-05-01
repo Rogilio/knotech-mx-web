@@ -1,0 +1,164 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap');
+@import "tailwindcss";
+
+
+/* ============================================================
+   DESIGN TOKENS — Light Mode (default)
+   ============================================================ */
+:root {
+  --clr-bg:             #f0f4ff;
+  --clr-bg-alt:         #ffffff;
+  --clr-surface:        rgba(255, 255, 255, 0.65);
+  --clr-surface-hover:  rgba(255, 255, 255, 0.85);
+  --clr-border:         rgba(99, 102, 241, 0.15);
+  --clr-text:           #1e1b4b;
+  --clr-text-muted:     #6b7280;
+  --clr-primary:        #6366f1;
+  --clr-primary-dark:   #4f46e5;
+  --clr-nav-bg:         rgba(240, 244, 255, 0.85);
+  --clr-overlay:        rgba(30, 27, 75, 0.5);
+}
+
+/* ============================================================
+   DESIGN TOKENS — Dark Mode
+   ============================================================ */
+[data-theme="dark"] {
+  --clr-bg:             #0b0f1a;
+  --clr-bg-alt:         #111827;
+  --clr-surface:        rgba(17, 24, 39, 0.75);
+  --clr-surface-hover:  rgba(31, 41, 55, 0.9);
+  --clr-border:         rgba(99, 102, 241, 0.25);
+  --clr-text:           #f1f5f9;
+  --clr-text-muted:     #94a3b8;
+  --clr-nav-bg:         rgba(11, 15, 26, 0.9);
+  --clr-overlay:        rgba(0, 0, 0, 0.7);
+}
+
+/* ============================================================
+   TAILWIND THEME EXTENSIONS
+   ============================================================ */
+@theme {
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-heading: 'Poppins', 'Inter', sans-serif;
+
+  --color-indigo-*: initial;
+  --color-cyan-*: initial;
+  --color-violet-*: initial;
+  --color-amber-*: initial;
+  --color-emerald-*: initial;
+  --color-rose-*: initial;
+}
+
+/* ============================================================
+   RESET & BASE
+   ============================================================ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background: var(--clr-bg);
+  color: var(--clr-text);
+  line-height: 1.7;
+  transition: background 0.3s ease, color 0.3s ease;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+}
+
+/* ============================================================
+   SCROLLBAR
+   ============================================================ */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--clr-bg); }
+::-webkit-scrollbar-thumb { background: var(--clr-primary); border-radius: 3px; }
+
+/* ============================================================
+   HERO ANIMATIONS
+   ============================================================ */
+@keyframes float {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50%       { transform: translateY(-30px) scale(1.05); }
+}
+
+@keyframes floatCard {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-12px); }
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.6; transform: scale(1.3); }
+}
+
+.animate-float {
+  animation: float 8s ease-in-out infinite;
+}
+.animate-float-delayed {
+  animation: float 8s ease-in-out infinite;
+  animation-delay: -4s;
+}
+.animate-pulse {
+  animation: pulse-dot 2s infinite;
+}
+
+/* ============================================================
+   FONT UTILITY
+   ============================================================ */
+.font-heading {
+  font-family: 'Poppins', 'Inter', sans-serif;
+}
+
+/* ============================================================
+   DARK MODE UTILITIES
+   ============================================================ */
+[data-theme="dark"] .dark\:bg-white\/5 {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+[data-theme="dark"] .dark\:text-slate-100 {
+  color: #f1f5f9;
+}
+[data-theme="dark"] .dark\:text-slate-300 {
+  color: #cbd5e1;
+}
+[data-theme="dark"] .dark\:text-slate-400 {
+  color: #94a3b8;
+}
+[data-theme="dark"] .dark\:text-slate-500 {
+  color: #64748b;
+}
+[data-theme="dark"] .dark\:text-emerald-400 {
+  color: #34d399;
+}
+[data-theme="dark"] .dark\:text-rose-400 {
+  color: #fb7185;
+}
