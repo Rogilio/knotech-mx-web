@@ -23,7 +23,7 @@ export default function Hero() {
       />
 
       {/* Main container — 2-col grid on lg */}
-      <div className="relative z-10 w-full max-w-[1200px] mx-auto px-8 py-20 lg:py-24 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div className="section-container relative z-10 py-20 lg:py-24 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
         {/* Left — text content */}
         <div>

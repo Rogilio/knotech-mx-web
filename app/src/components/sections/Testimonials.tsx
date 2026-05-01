@@ -4,7 +4,7 @@ import TestimonialCard from '@/components/ui/TestimonialCard';
 export default function Testimonials() {
   return (
     <section id="testimonios" aria-labelledby="testimonials-title" className="py-24 bg-[var(--clr-bg)]">
-      <div className="max-w-[1200px] mx-auto px-6">
+      <div className="section-container">
 
         {/* Header */}
         <div className="text-center mb-16">

@@ -16,6 +16,7 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('inicio');
+  const [mounted, setMounted] = useState(false);
 
   // Scroll effect + active section tracker
   useEffect(() => {
@@ -34,6 +35,12 @@ export default function Navbar() {
     }
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  // Set mounted after first render to avoid hydration mismatch on theme icon
+  useEffect(() => {
+    const id = setTimeout(() => setMounted(true), 0);
+    return () => clearTimeout(id);
   }, []);
 
   // Lock body scroll when mobile menu is open
@@ -66,7 +73,7 @@ export default function Navbar() {
             ${scrolled ? 'shadow-lg shadow-indigo-500/10' : ''}
           `}
         >
-          <div className="max-w-[1200px] mx-auto h-full flex items-center justify-between px-6">
+          <div className="section-container h-full flex items-center justify-between">
 
             {/* Logo */}
             <a href="#inicio" onClick={(e) => handleNavClick(e, '#inicio')} className="flex items-center gap-2.5 no-underline flex-shrink-0" aria-label="KnoTech - Inicio">
@@ -114,17 +121,18 @@ export default function Navbar() {
                 aria-label="Cambiar modo claro/oscuro"
                 className="w-10 h-10 rounded-full border border-[var(--clr-border)] bg-[var(--clr-surface)] flex items-center justify-center text-[var(--clr-text)] transition-all duration-300 hover:bg-indigo-500/15 hover:rotate-[20deg] hover:shadow-sm"
               >
-                {theme === 'dark' ? (
-                  // Sun
+                {/* Render icon only after mount to avoid hydration mismatch */}
+                {mounted && (theme === 'dark' ? (
+                  // Sun — shown in dark mode
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-[18px] h-[18px]">
                     <circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
                   </svg>
                 ) : (
-                  // Moon
+                  // Moon — shown in light mode
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-[18px] h-[18px]">
                     <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
                   </svg>
-                )}
+                ))}
               </button>
 
               {/* CTA */}

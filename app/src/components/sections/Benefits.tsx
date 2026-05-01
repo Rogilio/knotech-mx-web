@@ -38,7 +38,7 @@ export default function Benefits() {
       {/* Decorative blob */}
       <div className="absolute top-[-200px] right-[-200px] w-[600px] h-[600px] rounded-full bg-indigo-500/6 blur-[80px] pointer-events-none" aria-hidden="true" />
 
-      <div className="max-w-[1200px] mx-auto px-6">
+      <div className="section-container">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
           {/* Left — Benefits list */}

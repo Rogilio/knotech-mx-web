@@ -40,13 +40,6 @@
 @theme {
   --font-body: 'Inter', system-ui, sans-serif;
   --font-heading: 'Poppins', 'Inter', sans-serif;
-
-  --color-indigo-*: initial;
-  --color-cyan-*: initial;
-  --color-violet-*: initial;
-  --color-amber-*: initial;
-  --color-emerald-*: initial;
-  --color-rose-*: initial;
 }
 
 /* ============================================================
@@ -139,26 +132,14 @@ button {
 }
 
 /* ============================================================
-   DARK MODE UTILITIES
+   CONTAINER UTILITY
+   Max-width centrado, con padding lateral seguro.
+   Usar en lugar de max-w-[1200px] mx-auto px-6
    ============================================================ */
-[data-theme="dark"] .dark\:bg-white\/5 {
-  background-color: rgba(255, 255, 255, 0.05);
+.section-container {
+  width: 100%;
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
 }
-[data-theme="dark"] .dark\:text-slate-100 {
-  color: #f1f5f9;
-}
-[data-theme="dark"] .dark\:text-slate-300 {
-  color: #cbd5e1;
-}
-[data-theme="dark"] .dark\:text-slate-400 {
-  color: #94a3b8;
-}
-[data-theme="dark"] .dark\:text-slate-500 {
-  color: #64748b;
-}
-[data-theme="dark"] .dark\:text-emerald-400 {
-  color: #34d399;
-}
-[data-theme="dark"] .dark\:text-rose-400 {
-  color: #fb7185;
-}
+

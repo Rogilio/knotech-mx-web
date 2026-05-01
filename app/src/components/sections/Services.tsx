@@ -4,7 +4,7 @@ import ServiceCard from '@/components/ui/ServiceCard';
 export default function Services() {
   return (
     <section id="servicios" aria-labelledby="services-title" className="py-24 bg-[var(--clr-bg)]">
-      <div className="max-w-[1200px] mx-auto px-6">
+      <div className="section-container">
 
         {/* Header */}
         <div className="text-center mb-16">
